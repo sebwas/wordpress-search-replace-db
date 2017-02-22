@@ -34,7 +34,9 @@ done
 CONFIG_FILE=${CONFIG_FILE:-/tmp/wp-config.php}
 
 if [ ! -f $CONFIG_FILE ]; then
-	if [ ! -f /var/www/html/wp-config.php ]; then
+	CONFIG_FILE=/var/html/wp-config.php
+
+	if [ ! -f $CONFIG_FILE ]; then
 		echo "No wp-config.php found. Please specify using either the \$CONFIG_FILE environment variable"
 		echo "or by mounting the config file to /tmp/wp-config.php or /var/www/html/wp-config.php"
 		
