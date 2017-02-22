@@ -33,6 +33,15 @@ done
 
 CONFIG_FILE=${CONFIG_FILE:-/tmp/wp-config.php}
 
+if [ ! -f $CONFIG_FILE ]; then
+	if [ ! -f /var/www/html/wp-config.php ]; then
+		echo "No wp-config.php found. Please specify using either the \$CONFIG_FILE environment variable"
+		echo "or by mounting the config file to /tmp/wp-config.php or /var/www/html/wp-config.php"
+		
+		exit 1
+	fi
+fi
+
 extract_text_portion $CONFIG_FILE "DB_NAME"
 DB_NAME=$TEXT_PORTION
 
