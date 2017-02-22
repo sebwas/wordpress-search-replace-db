@@ -4,6 +4,5 @@ if [ "${1}" != "srdb" ]; then
 	exec $@
 fi
 
-srdb $@
-exit 0
+exec srdb $@
 
