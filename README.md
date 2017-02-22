@@ -13,3 +13,10 @@ docker run --rm -v /path/to/wp-config.php:/tmp/wp-config.php:ro --link some-db-c
 ```
 docker run --rm -v /path/to/wordpress:/var/www/html:ro --link some-db-container:db sebwas/wp-srdb srdb example.com example.net
 ```
+
+**-- OR --**
+
+Directly specify the db data as environment variables like so:
+```
+docker run --rm -e DB_USER=root -e DB_PASS=secret -e DB_HOST=db -e DB_NAME=wordpress --link some-db-container:db sebwas/wp-srdb srdb example.com example.net
+```
